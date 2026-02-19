@@ -1,0 +1,21 @@
+{
+  "name": "autowhatsapp-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "cd apps/web && npm run dev",
+    "build": "cd apps/web && npm run build",
+    "start": "cd apps/web && npm run start",
+    "lint": "cd apps/web && npm run lint"
+  },
+  "description": "AutoWhatsApp - Platform API WhatsApp untuk Bisnis",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rclayskuy10/AutoWhatsApp.git"
+  },
+  "author": "rclayskuy10",
+  "license": "MIT"
+}
