@@ -6,23 +6,24 @@ import Link from "next/link";
 
 const pathLabels: Record<string, string> = {
     "/dashboard": "Dashboard",
-    "/dashboard/perangkat": "Devices",
-    "/dashboard/kontak": "Contacts",
-    "/dashboard/templat": "Templates",
-    "/dashboard/kampanye": "Campaigns",
-    "/dashboard/kunci-api": "API Keys",
-    "/dashboard/tagihan": "Billing",
-    "/dashboard/organisasi": "Organization",
-    "/dashboard/bantuan": "Help Center",
-    "/dashboard/profil": "Profile",
-    "/dashboard/laporan": "Reports",
+    "/dashboard/devices": "Devices",
+    "/dashboard/contacts": "Contacts",
+    "/dashboard/templates": "Templates",
+    "/dashboard/campaigns": "Campaigns",
+    "/dashboard/api-keys": "API Keys",
+    "/dashboard/billing": "Billing",
+    "/dashboard/organization": "Organization",
+    "/dashboard/help": "Help Center",
+    "/dashboard/profile": "Profile",
+    "/dashboard/reports": "Reports",
     "/dashboard/webhook-log": "Webhook Logs",
     "/dashboard/chatbot": "Chatbot",
-    "/dashboard/manajemen-user": "User Management",
-    "/dashboard/paket-langganan": "Subscription Plans",
-    "/dashboard/transaksi": "Transactions",
-    "/dashboard/pengaturan-sistem": "System Settings",
-    "/dashboard/keamanan-audit": "Security & Audit",
+    "/dashboard/user-management": "User Management",
+    "/dashboard/subscription-plans": "Subscription Plans",
+    "/dashboard/transactions": "Transactions",
+    "/dashboard/system-settings": "System Settings",
+    "/dashboard/security-audit": "Security & Audit",
+    "/dashboard/choose-package": "Choose Package",
 };
 
 const notifications = [
@@ -202,7 +203,7 @@ export default function DashboardHeader() {
 
                 {/* Profile link */}
                 <Link
-                    href="/dashboard/profil"
+                    href="/dashboard/profile"
                     className="p-2 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors"
                 >
                     <span className="material-symbols-outlined text-xl">account_circle</span>

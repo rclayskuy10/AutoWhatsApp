@@ -54,7 +54,7 @@ export const platformActivities = [
         initials: "BS",
         initialsColor: "bg-orange-100 text-orange-600",
         activity: "Upgrade Paket",
-        activityDetail: "(Basic → Pro)",
+        activityDetail: "(Basic Pack → Pro Monthly)",
         time: "Baru saja",
         status: "Berhasil",
         statusColor: "bg-green-50 text-green-700 ring-green-600/20",

@@ -124,6 +124,14 @@ export default function ChatbotPage() {
     if (!isAdmin) {
         return (
             <div className="p-4 md:p-8 space-y-6">
+                {/* Toast */}
+                {toast && (
+                    <div className={`fixed top-6 right-6 z-50 flex items-center gap-2 px-4 py-3 rounded-lg shadow-lg text-white text-sm font-medium ${toast.type === "success" ? "bg-wa-green" : "bg-red-500"}`}>
+                        <span className="material-symbols-outlined text-[18px]">{toast.type === "success" ? "check_circle" : "error"}</span>
+                        {toast.message}
+                    </div>
+                )}
+
                 {/* Title */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div>

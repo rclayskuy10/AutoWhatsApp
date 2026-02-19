@@ -12,33 +12,34 @@ interface NavItem {
 // Menu for regular User
 const userMainNav: NavItem[] = [
     { label: "Dashboard", icon: "dashboard", href: "/dashboard" },
-    { label: "Devices", icon: "devices", href: "/dashboard/perangkat" },
-    { label: "Contacts", icon: "contacts", href: "/dashboard/kontak" },
-    { label: "Templates", icon: "description", href: "/dashboard/templat" },
-    { label: "Campaigns", icon: "campaign", href: "/dashboard/kampanye" },
+    { label: "Devices", icon: "devices", href: "/dashboard/devices" },
+    { label: "Contacts", icon: "contacts", href: "/dashboard/contacts" },
+    { label: "Templates", icon: "description", href: "/dashboard/templates" },
+    { label: "Campaigns", icon: "campaign", href: "/dashboard/campaigns" },
     { label: "Chatbot", icon: "smart_toy", href: "/dashboard/chatbot" },
-    { label: "Reports", icon: "analytics", href: "/dashboard/laporan" },
-    { label: "API Keys", icon: "key", href: "/dashboard/kunci-api" },
+    { label: "Reports", icon: "analytics", href: "/dashboard/reports" },
+    { label: "API Keys", icon: "key", href: "/dashboard/api-keys" },
     { label: "Webhook Logs", icon: "webhook", href: "/dashboard/webhook-log" },
-    { label: "Billing", icon: "credit_card", href: "/dashboard/tagihan" },
+    { label: "Billing", icon: "credit_card", href: "/dashboard/billing" },
+    { label: "Upgrade Package", icon: "upgrade", href: "/dashboard/choose-package" },
 ];
 
 const userSettingsNav: NavItem[] = [
-    { label: "Organization", icon: "settings", href: "/dashboard/organisasi" },
-    { label: "Help Center", icon: "help", href: "/dashboard/bantuan" },
+    { label: "Organization", icon: "settings", href: "/dashboard/organization" },
+    { label: "Help Center", icon: "help", href: "/dashboard/help" },
 ];
 
 // Menu for Super Admin
 const adminMainNav: NavItem[] = [
     { label: "Main Dashboard", icon: "dashboard", href: "/dashboard" },
-    { label: "User Management", icon: "group", href: "/dashboard/manajemen-user" },
-    { label: "Subscription Plans", icon: "credit_card", href: "/dashboard/paket-langganan" },
-    { label: "Transactions", icon: "receipt_long", href: "/dashboard/transaksi" },
+    { label: "User Management", icon: "group", href: "/dashboard/user-management" },
+    { label: "Subscription Plans", icon: "credit_card", href: "/dashboard/subscription-plans" },
+    { label: "Transactions", icon: "receipt_long", href: "/dashboard/transactions" },
 ];
 
 const adminSettingsNav: NavItem[] = [
-    { label: "System Settings", icon: "settings", href: "/dashboard/pengaturan-sistem" },
-    { label: "Security & Audit", icon: "security", href: "/dashboard/keamanan-audit" },
+    { label: "System Settings", icon: "settings", href: "/dashboard/system-settings" },
+    { label: "Security & Audit", icon: "security", href: "/dashboard/security-audit" },
 ];
 
 interface SidebarProps {
@@ -234,7 +235,7 @@ export default function Sidebar({
                     {collapsed ? (
                         <div className="flex flex-col items-center gap-2">
                             <a
-                                href="/dashboard/profil"
+                                href="/dashboard/profile"
                                 className="group relative w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold text-sm hover:ring-2 hover:ring-wa-green transition-all"
                                 title={userName}
                             >
@@ -257,7 +258,7 @@ export default function Sidebar({
                     ) : (
                         <div className="flex items-center gap-3">
                             <a
-                                href="/dashboard/profil"
+                                href="/dashboard/profile"
                                 className="flex items-center gap-3 flex-1 min-w-0 hover:opacity-80 transition-opacity cursor-pointer"
                             >
                                 <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold text-sm flex-shrink-0">
@@ -343,7 +344,7 @@ export default function Sidebar({
                 <div className="p-4 border-t border-gray-100 flex-shrink-0">
                     <div className="flex items-center gap-3">
                         <a
-                            href="/dashboard/profil"
+                            href="/dashboard/profile"
                             className="flex items-center gap-3 flex-1 min-w-0 hover:opacity-80 transition-opacity cursor-pointer"
                         >
                             <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold text-sm flex-shrink-0">

@@ -413,7 +413,7 @@ export default function DokumentasiPage() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                         <Link
-                            href="/dashboard/bantuan"
+                            href="/dashboard/help"
                             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-wa-green hover:bg-wa-dark text-white font-medium rounded-lg transition-colors"
                         >
                             <span className="material-symbols-outlined text-xl">help</span>

@@ -1,12 +1,31 @@
 "use client";
 
 import { Fragment, useState } from "react";
+import { useRouter } from "next/navigation";
 import { webhookLogs, eventTypes } from "@/data/dummy/webhook";
 
 export default function WebhookLogPage() {
+    const router = useRouter();
     const [filterEvent, setFilterEvent] = useState("Semua Event");
     const [filterStatus, setFilterStatus] = useState("Semua");
     const [expandedId, setExpandedId] = useState<string | null>(null);
+
+    // Toast
+    const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
+    const showToast = (message: string, type: "success" | "error" = "success") => {
+        setToast({ message, type });
+        setTimeout(() => setToast(null), 3000);
+    };
+
+    // Copy payload
+    const handleCopyPayload = (payload: string) => {
+        const formatted = JSON.stringify(JSON.parse(payload), null, 2);
+        navigator.clipboard.writeText(formatted).then(() => {
+            showToast("Payload berhasil disalin ke clipboard");
+        }).catch(() => {
+            showToast("Gagal menyalin payload", "error");
+        });
+    };
 
     const filtered = webhookLogs.filter((log) => {
         const matchEvent = filterEvent === "Semua Event" || log.event === filterEvent;
@@ -25,6 +44,14 @@ export default function WebhookLogPage() {
 
     return (
         <div className="p-4 md:p-8 space-y-6">
+            {/* Toast */}
+            {toast && (
+                <div className={`fixed top-6 right-6 z-[60] flex items-center gap-2 px-4 py-3 rounded-lg shadow-lg text-white text-sm font-medium ${toast.type === "success" ? "bg-wa-green" : "bg-red-500"}`}>
+                    <span className="material-symbols-outlined text-[18px]">{toast.type === "success" ? "check_circle" : "error"}</span>
+                    {toast.message}
+                </div>
+            )}
+
             {/* Header */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
@@ -33,7 +60,10 @@ export default function WebhookLogPage() {
                         Riwayat pengiriman webhook dan detail payload
                     </p>
                 </div>
-                <button className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button
+                    onClick={() => router.push("/dashboard/api-keys")}
+                    className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-50"
+                >
                     <span className="material-symbols-outlined text-lg">settings</span>
                     Konfigurasi Webhook
                 </button>
@@ -143,7 +173,10 @@ export default function WebhookLogPage() {
                                             <td colSpan={6} className="bg-gray-900 px-4 py-4">
                                                 <div className="flex items-center justify-between mb-2">
                                                     <span className="text-xs text-gray-400 font-medium">Response Payload</span>
-                                                    <button className="text-xs text-wa-green hover:text-wa-dark flex items-center gap-1">
+                                                    <button
+                                                        onClick={(e) => { e.stopPropagation(); handleCopyPayload(log.payload); }}
+                                                        className="text-xs text-wa-green hover:text-wa-dark flex items-center gap-1"
+                                                    >
                                                         <span className="material-symbols-outlined text-sm">content_copy</span>
                                                         Copy
                                                     </button>

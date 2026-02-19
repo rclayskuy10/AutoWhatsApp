@@ -39,7 +39,7 @@ export const auditLogs: AuditLogEntry[] = [
         module: "Tagihan",
         moduleColor: "bg-blue-50 text-blue-700 ring-blue-700/10",
         action: "Ubah Harga Paket",
-        actionCode: "Pro Plan",
+        actionCode: "Pro Monthly",
         ip: "182.44.21.09",
         status: "Sukses",
     },
